@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みちのく四郎 — 代理店パートナー募集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --indigo:     #1b3a5c;
+  --indigo-d:   #122841;
+  --vermillion: #c8503c;
+  --gold:       #c8a03c;
+  --gold-l:     #fdf6e3;
+  --snow:       #f5f2ed;
+  --green:      #2d5a3f;
+  --sakura:     #e8a0b4;
+  --text-dark:  #1a1a2e;
+  --text-mid:   #4a4a5a;
+  --text-light: #7a7a8a;
+  --border:     #e2ddd6;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #fff;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── HERO ──────────────────────────────────────────── */
+.hero {
+  background: var(--indigo);
+  padding: 56px 24px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(200,160,60,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--vermillion), var(--gold));
+}
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.3s forwards;
+}
+.hero-label-line { width: 28px; height: 1px; background: var(--gold); }
+.hero-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--sakura);
+  border: 1px solid rgba(232,160,180,0.4);
+  padding: 3px 10px;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.5s forwards;
+}
+.hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.45;
+  color: #fff;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.7s forwards;
+}
+.hero-title .gold {
+  background: linear-gradient(135deg, var(--gold), #f0d060);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 2;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.9s forwards;
+}
+.hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--indigo);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 16px 24px;
+  text-decoration: none;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 1.1s forwards;
+  transition: all 0.3s;
+}
+.hero-cta:hover { background: #dbb84a; transform: translateY(-2px); }
+.hero-cta svg { width: 14px; height: 14px; }
+
+/* ── MARQUEE ───────────────────────────────────────── */
+.marquee-wrap {
+  background: var(--snow);
+  padding: 12px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 18s linear infinite;
+  white-space: nowrap;
+}
+.marquee-track span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--text-light);
+  text-transform: uppercase;
+  padding-right: 40px;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── SECTION COMMON ────────────────────────────────── */
+.section { padding: 52px 24px; }
+.section-alt { background: var(--snow); }
+.section-dark { background: var(--indigo); }
+
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 14px;
+}
+.sec-label-dark { color: var(--gold); }
+.sec-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--vermillion); flex-shrink: 0; }
+.sec-dot-dark { background: var(--gold); }
+
+.sec-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.sec-title-white { color: #fff; }
+
+.divider {
+  width: 40px; height: 2px;
+  background: linear-gradient(90deg, var(--vermillion), var(--gold));
+  margin: 16px 0 24px;
+}
+
+/* ── CATCH ─────────────────────────────────────────── */
+.catch-box {
+  background: var(--indigo);
+  padding: 24px 20px;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 20px;
+}
+.catch-box p {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.8;
+}
+.catch-box .gold-text { color: var(--gold); }
+
+.ba-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.ba-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 12px 10px;
+  min-width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ba-label.before { background: #fff0ee; color: var(--vermillion); }
+.ba-label.after  { background: #edfaf2; color: var(--green); }
+.ba-text {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  padding: 12px 12px;
+  border-left: 1px solid var(--border);
+}
+
+/* ── SERVICES ──────────────────────────────────────── */
+.svc-card {
+  background: var(--snow);
+  border-left: 3px solid var(--gold);
+  padding: 20px 18px;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.svc-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--indigo), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--vermillion);
+  margin-bottom: 6px;
+}
+.svc-title { font-size: 15px; font-weight: 700; color: var(--indigo); margin-bottom: 3px; }
+.svc-sub { font-size: 10px; color: var(--text-light); margin-bottom: 8px; }
+.svc-desc { font-size: 12px; color: var(--text-mid); line-height: 1.9; }
+.svc-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 3px 10px;
+  background: rgba(27,58,92,0.06);
+  font-size: 9px;
+  color: var(--indigo);
+  letter-spacing: 0.1em;
+}
+
+/* ── STEPS ─────────────────────────────────────────── */
+.step-wrap { position: relative; }
+.step-line {
+  position: absolute;
+  left: 19px; top: 38px; bottom: 38px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+.step {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.step-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--gold);
+  background: var(--indigo);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.step-body { flex: 1; padding-top: 6px; }
+.step-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.step-desc { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.9; }
+
+/* ── REWARD ─────────────────────────────────────────── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.kpi-box {
+  padding: 20px 14px;
+  text-align: center;
+}
+.kpi-box.gold-bg { background: var(--gold-l); border-left: 3px solid var(--gold); }
+.kpi-box.green-bg { background: #edfaf2; border-left: 3px solid var(--green); }
+.kpi-label { font-size: 9px; color: var(--text-light); letter-spacing: 0.1em; margin-bottom: 6px; }
+.kpi-val { font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 900; color: var(--indigo); margin-bottom: 4px; line-height: 1.3; }
+.kpi-note { font-size: 9px; color: var(--text-light); margin-bottom: 4px; }
+.kpi-highlight { font-size: 11px; font-weight: 700; }
+.kpi-highlight.red { color: var(--vermillion); }
+.kpi-highlight.green { color: var(--green); }
+
+.sim-title { font-size: 11px; color: var(--text-light); margin-bottom: 12px; }
+.sim-table { width: 100%; border-collapse: collapse; }
+.sim-table th {
+  background: var(--indigo);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 10px 8px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.sim-table td {
+  font-size: 11px;
+  padding: 10px 8px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dark);
+  background: var(--snow);
+}
+.sim-table tr:last-child td {
+  background: var(--gold-l);
+  font-weight: 700;
+  color: var(--indigo);
+}
+
+/* ── RESULTS ────────────────────────────────────────── */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.result-card {
+  background: #fff;
+  border-top: 2px solid var(--gold);
+  padding: 18px 14px;
+}
+.result-val {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--indigo);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.result-desc { font-size: 10px; color: var(--text-light); line-height: 1.7; }
+
+/* ── FAQ ────────────────────────────────────────────── */
+.faq-item { margin-bottom: 10px; border-left: 2px solid var(--vermillion); overflow: hidden; }
+.faq-q {
+  background: var(--snow);
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--indigo);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+.faq-q-text { flex: 1; line-height: 1.6; }
+.faq-icon {
+  font-size: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+.faq-icon.open { transform: rotate(45deg); }
+.faq-a {
+  background: #fff;
+  padding: 0 16px;
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 2;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s;
+}
+.faq-a.open { max-height: 200px; padding: 14px 16px; }
+
+/* ── FOOTER CTA ─────────────────────────────────────── */
+.footer-cta {
+  background: var(--indigo);
+  padding: 52px 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--vermillion), var(--gold));
+}
+.footer-cta::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(200,160,60,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.footer-cta-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  position: relative;
+}
+.footer-cta-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  line-height: 2;
+  margin-bottom: 32px;
+  position: relative;
+}
+.footer-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--indigo);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 16px 24px;
+  text-decoration: none;
+  margin-bottom: 28px;
+  position: relative;
+  transition: all 0.3s;
+}
+.footer-cta-btn:hover { background: #dbb84a; transform: translateY(-2px); }
+.footer-info {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  line-height: 2;
+  position: relative;
+}
+.footer-info .gold-text { color: var(--gold); }
+
+/* ── REVEAL ANIMATION ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+
+/* ── ANIMATIONS ──────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── CONTACT FORM ─────────────────────────────────────── */
+.contact-form { text-align: left; margin-top: 28px; position: relative; }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-bottom: 6px;
+}
+.req { color: var(--sakura); margin-left: 2px; }
+.form-group input,
+.form-group textarea {
+  width: 100%; padding: 12px 14px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px; color: #fff;
+  font-family: 'Noto Sans JP', sans-serif; font-size: 14px;
+  outline: none; transition: border-color 0.3s, background 0.3s;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+.form-group input:focus,
+.form-group textarea:focus { border-color: var(--gold); background: rgba(255,255,255,0.11); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 16px;
+  background: var(--gold); color: var(--indigo);
+  font-family: 'Noto Sans JP', sans-serif; font-size: 14px;
+  font-weight: 700; letter-spacing: 0.1em;
+  border: none; cursor: pointer; transition: all 0.3s; margin-top: 8px;
+}
+.form-btn:hover { background: #dbb84a; transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ──────────────────────────────── -->
+<section class="hero">
+  <div class="hero-label">
+    <span class="hero-label-line"></span>
+    Partner Program
+  </div>
+  <div class="hero-tag">代理店パートナー募集</div>
+  <h1 class="hero-title">
+    紹介するだけで<br>
+    <span class="gold">毎月報酬</span>が<br>入る仕組み
+  </h1>
+  <p class="hero-sub">
+    PR案件のお付き合いやお知り合いの店舗様へ<br>
+    一言つなぐだけ。<br>
+    営業・交渉・契約は弊社が全て対応します。
+  </p>
+  <a href="#cta" class="hero-cta">
+    <span>詳しく見る</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ── MARQUEE ────────────────────────────── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>MEO対策 &mdash; インバウンド &mdash; LLMO対策 &mdash; Instagram代行 &mdash; 毎月継続報酬 &mdash; 東北から世界へ &mdash; NOAH &mdash; みちのく四郎 &mdash;</span>
+    <span>MEO対策 &mdash; インバウンド &mdash; LLMO対策 &mdash; Instagram代行 &mdash; 毎月継続報酬 &mdash; 東北から世界へ &mdash; NOAH &mdash; みちのく四郎 &mdash;</span>
+  </div>
+</div>
+
+<!-- ── SECTION 1: サービス概要 ──────────── -->
+<section class="section reveal">
+  <p class="sec-label"><span class="sec-dot"></span>Service Overview</p>
+  <h2 class="sec-title">「みちのく四郎」って<br>何？</h2>
+  <div class="divider"></div>
+
+  <div class="catch-box">
+    <p>お店を<span class="gold-text">Googleマップ・SNS・AI</span>で<br>もっとたくさんの人に<br>見つけてもらうサービスです。</p>
+  </div>
+
+  <div class="ba-row reveal reveal-d1">
+    <div class="ba-label before">Before</div>
+    <div class="ba-text">「渋谷　ラーメン」で検索しても、Googleマップにお店が全然出てこない…</div>
+  </div>
+  <div class="ba-row reveal reveal-d2">
+    <div class="ba-label after">After</div>
+    <div class="ba-text">Googleマップ上位に表示！外国人のお客さんも自然に来店するように！</div>
+  </div>
+</section>
+
+<!-- ── SECTION 2: サービス内容 ──────────── -->
+<section class="section section-alt">
+  <p class="sec-label"><span class="sec-dot"></span>Service Content</p>
+  <h2 class="sec-title">4つのサービスが<br>セットで届く</h2>
+  <div class="divider"></div>
+
+  <div class="svc-card reveal">
+    <p class="svc-num">01</p>
+    <p class="svc-title">MEO対策</p>
+    <p class="svc-sub">Googleマップ 最適化</p>
+    <p class="svc-desc">「近くのお店」検索で上位表示されるよう最適化。地図アプリで探すお客さんをガッチリ集客できます。</p>
+    <span class="svc-badge">Google Map Optimization</span>
+  </div>
+
+  <div class="svc-card reveal reveal-d1">
+    <p class="svc-num">02</p>
+    <p class="svc-title">インバウンド対策</p>
+    <p class="svc-sub">外国人集客サポート</p>
+    <p class="svc-desc">外国語対応のGoogle情報を整え、旅行者・訪日外国人にも見つけてもらえる環境を構築します。</p>
+    <span class="svc-badge">Inbound Support</span>
+  </div>
+
+  <div class="svc-card reveal reveal-d2">
+    <p class="svc-num">03</p>
+    <p class="svc-title">LLMO対策</p>
+    <p class="svc-sub">AI検索への対応</p>
+    <p class="svc-desc">ChatGPT・GeminiなどのAIに質問されたとき、お店を紹介してもらえるよう最適化する次世代対策です。</p>
+    <span class="svc-badge">AI Search Optimization</span>
+  </div>
+
+  <div class="svc-card reveal reveal-d3">
+    <p class="svc-num">04</p>
+    <p class="svc-title">Instagram投稿代行</p>
+    <p class="svc-sub">SNS運用を丸ごとサポート</p>
+    <p class="svc-desc">プロがInstagramを定期投稿・運用代行。フォロワーを増やし、来店につながるSNS集客を実現します。</p>
+    <span class="svc-badge">SNS Management</span>
+  </div>
+</section>
+
+<!-- ── SECTION 3: 仕組み ─────────────────── -->
+<section class="section section-dark">
+  <p class="sec-label sec-label-dark"><span class="sec-dot sec-dot-dark"></span>How It Works</p>
+  <h2 class="sec-title sec-title-white">3ステップで<br>報酬が入る</h2>
+  <div class="divider"></div>
+
+  <div class="step-wrap">
+    <div class="step-line"></div>
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <p class="step-title">PR先や知り合いの店舗様へ一言声がけ</p>
+        <p class="step-desc">「集客で困ってませんか？詳しい担当者を紹介しますよ」— これだけでOKです。</p>
+      </div>
+    </div>
+    <div class="step reveal reveal-d1">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <p class="step-title">弊社に繋ぐだけ</p>
+        <p class="step-desc">「話だけ聞いてみたい」くらいの温度感で大丈夫。商談・営業は全て弊社が担当します。</p>
+      </div>
+    </div>
+    <div class="step reveal reveal-d2">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <p class="step-title">契約成立で毎月報酬IN</p>
+        <p class="step-desc">店舗が契約を続ける限り、毎月継続的に報酬をお受け取りいただけます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 4: 報酬 ───────────────────── -->
+<section class="section">
+  <p class="sec-label"><span class="sec-dot"></span>Reward</p>
+  <h2 class="sec-title">いくらもらえるの？</h2>
+  <div class="divider"></div>
+
+  <div class="kpi-row reveal">
+    <div class="kpi-box gold-bg">
+      <p class="kpi-label">報酬額</p>
+      <p class="kpi-val">売上の<br>20%</p>
+      <p class="kpi-note">月額4.4万円〜なので</p>
+      <p class="kpi-highlight red">1件 = 8,800円〜/月</p>
+    </div>
+    <div class="kpi-box green-bg">
+      <p class="kpi-label">解約率</p>
+      <p class="kpi-val">約<br>2〜3%</p>
+      <p class="kpi-note">ほとんどの店舗が継続</p>
+      <p class="kpi-highlight green">長期安定収入に</p>
+    </div>
+  </div>
+
+  <p class="sim-title reveal">📊 紹介件数別シミュレーション</p>
+  <table class="sim-table reveal reveal-d1">
+    <thead>
+      <tr>
+        <th>紹介件数</th>
+        <th>月の報酬（目安）</th>
+        <th>年間（目安）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1件</td><td>8,800円〜</td><td>105,600円〜</td></tr>
+      <tr><td>3件</td><td>26,400円〜</td><td>316,800円〜</td></tr>
+      <tr><td>5件</td><td>44,000円〜</td><td>528,000円〜</td></tr>
+      <tr><td>10件</td><td>88,000円〜</td><td>1,056,000円〜</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── SECTION 5: 実績 ───────────────────── -->
+<section class="section section-alt">
+  <p class="sec-label"><span class="sec-dot"></span>Results — 実績</p>
+  <h2 class="sec-title">すでに多くの店舗で<br>成果が出ています</h2>
+  <div class="divider"></div>
+
+  <div class="results-grid">
+    <div class="result-card reveal">
+      <p class="result-val">全国で<br>多数の実績</p>
+      <p class="result-desc">累計1,000店舗以上の集客支援実績があります</p>
+    </div>
+    <div class="result-card reveal reveal-d1">
+      <p class="result-val">前月比<br>110%以上UP</p>
+      <p class="result-desc">支援した全店舗でGoogleマップの表示回数が増加</p>
+    </div>
+    <div class="result-card reveal reveal-d2">
+      <p class="result-val">150店舗以上<br>と契約中</p>
+      <p class="result-desc">現在も毎月増加中。安定した需要があります</p>
+    </div>
+    <div class="result-card reveal reveal-d3">
+      <p class="result-val">継続率<br>97〜98%</p>
+      <p class="result-desc">ほとんどの店舗が長期継続。安心して紹介できます</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 6: 2次代理店 ──────────────── -->
+<section class="section section-alt">
+  <p class="sec-label"><span class="sec-dot"></span>Secondary Partner</p>
+  <h2 class="sec-title">2次代理店も<br>募集しています</h2>
+  <div class="divider"></div>
+
+  <div class="catch-box reveal">
+    <p>代理店パートナーをご紹介いただくだけで、<br><span class="gold-text">さらに報酬が上乗せされます。</span></p>
+  </div>
+
+  <div class="svc-card reveal reveal-d1" style="border-left-color: var(--vermillion);">
+    <p class="svc-num">SECONDARY PARTNER</p>
+    <p class="svc-title">2次代理店を紹介した場合</p>
+    <p class="svc-desc" style="margin-top:8px;">2次代理店の売上の<strong style="color:var(--indigo);">10%</strong>を、紹介してくださった1次代理店の方へ毎月お渡しします。</p>
+  </div>
+
+  <div class="kpi-row reveal reveal-d2" style="margin-top:4px; margin-bottom:0;">
+    <div class="kpi-box gold-bg">
+      <p class="kpi-label">1次代理店の報酬</p>
+      <p class="kpi-val" style="font-size:17px;">売上の<br>20%</p>
+      <p class="kpi-highlight red">店舗紹介の報酬</p>
+    </div>
+    <div class="kpi-box" style="background:#fff3f0; border-left: 3px solid var(--vermillion);">
+      <p class="kpi-label">2次紹介の追加報酬</p>
+      <p class="kpi-val" style="font-size:17px;">売上の<br>10%</p>
+      <p class="kpi-highlight red">代理店紹介の報酬</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 7: FAQ ────────────────────── -->
+<section class="section">
+  <p class="sec-label"><span class="sec-dot"></span>FAQ</p>
+  <h2 class="sec-title">よくある質問</h2>
+  <div class="divider"></div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-q-text">営業の知識がなくても大丈夫？</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a">大丈夫です！「話だけ聞いてみませんか？」と一言つなぐだけでOK。商談・交渉・契約は全てNOAHが担当します。</div>
+  </div>
+
+  <div class="faq-item reveal reveal-d1">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-q-text">どんなお店が対象ですか？</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a">飲食店・サロン・クリニック・観光施設など、実店舗があればどんな業種でもOKです。</div>
+  </div>
+
+  <div class="faq-item reveal reveal-d2">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-q-text">いつから報酬が入りますか？</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a">紹介先の店舗が契約した翌月から、毎月継続的にお支払いします。</div>
+  </div>
+
+  <div class="faq-item reveal reveal-d3">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-q-text">契約してもらえなかった場合は？</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a">報酬は発生しませんが、声をかけるだけで店舗さんに喜ばれることも多いです。まずはお気軽に！</div>
+  </div>
+</section>
+
+<!-- ── FOOTER CTA ─────────────────────────── -->
+<!-- ── CONTACT ─────────────────────────────── -->
+<section class="footer-cta" id="contact">
+  <h2 class="footer-cta-title">ご興味をお持ちの方は<br>担当者へご連絡ください</h2>
+  <p class="footer-cta-sub">
+    「話だけ聞いてみたい」くらいの温度感でも大歓迎です😊<br>
+    まずは、無料相談にて今の状況を確認させてください。
+  </p>
+  <p class="footer-info" style="margin-top: 24px;">
+    <span class="gold-text">株式会社NOAH</span><br><br>
+    &copy; 2026 NOAH. All rights reserved.
+  </p>
+</section>
+
+<script>
+// FAQ accordion
+function toggleFaq(el) {
+  const icon = el.querySelector('.faq-icon');
+  const ans  = el.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+  if (!isOpen) {
+    ans.classList.add('open');
+    icon.classList.add('open');
+  }
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
